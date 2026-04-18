@@ -60,6 +60,13 @@ class StockDetailViewController: UIViewController {
                 self.updateUI(stock: stock)
             }.store(in: &cancellables)
     
+        viewModel?.connectionStatus
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] connectionStatus in
+                self?.feedButtonConfig.disabled = connectionStatus == .connecting
+            }
+            .store(in: &cancellables)
+        
         viewModel?.isFeedActive
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isActive in

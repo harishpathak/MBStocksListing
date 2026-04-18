@@ -14,7 +14,7 @@ enum StockCatalog {
             id: "AAPL", symbol: "AAPL", companyName: "Apple Inc.",
             sector: "Technology",
             description: "Apple designs, manufactures and markets smartphones, personal computers, tablets, wearables and accessories worldwide. Its ecosystem — iPhone, Mac, iPad, Apple Watch, and services — serves over 2 billion active devices.",
-            currentPrice: 189.84, previousPrice: 189.85
+            currentPrice: 189.84, previousPrice: 189.84
         ),
         Stock(
             id: "MSFT", symbol: "MSFT", companyName: "Microsoft Corporation",

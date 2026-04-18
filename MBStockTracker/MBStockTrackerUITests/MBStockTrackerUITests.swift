@@ -23,10 +23,14 @@ final class MBStockTrackerUITests: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
+    func testPostiveFlow() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        app.staticTexts["Start"].firstMatch.tap()
+        app.cells.containing(.staticText, identifier: "AAPL").firstMatch.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["Stop"]/*[[".buttons",".containing(.image, identifier: \"stop.fill\")",".containing(.staticText, identifier: \"Stop\")",".otherElements[\"dPo-Zy-Htn\"].buttons",".otherElements.buttons[\"Stop\"]",".buttons[\"Stop\"]"],[[[-1,5],[-1,4],[-1,3],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["BackButton"]/*[[".navigationBars",".buttons",".buttons[\"Top 25 US Stocks\"]",".buttons[\"BackButton\"]"],[[[-1,3],[-1,2],[-1,0,1]],[[-1,3],[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.firstMatch.tap()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

@@ -23,6 +23,7 @@ struct FeedButton: View {
             .background(RoundedRectangle(cornerRadius: 12.0).fill(config.state == .start ? .theme : .stop))
         }
         .buttonStyle(.plain)
+        .disabled(config.disabled)
     }
 }
 

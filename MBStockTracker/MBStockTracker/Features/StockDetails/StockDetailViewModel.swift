@@ -11,6 +11,7 @@ import Combine
 protocol StockDetailViewModelAdaptable: AnyObject {
     var stock: AnyPublisher<Stock, Never> { get }
     var isFeedActive: AnyPublisher<Bool, Never> { get }
+    var connectionStatus: AnyPublisher<ConnectionStatus, Never> { get }
     
     func toggleFeed()
 }
@@ -23,9 +24,11 @@ final class StockDetailViewModel: StockDetailViewModelAdaptable {
     var isFeedActive: AnyPublisher<Bool, Never> {
         stockPriceService.isFeedActive
     }
- 
-    // MARK: - Private -
- 
+    
+    var connectionStatus: AnyPublisher<ConnectionStatus, Never> {
+        stockPriceService.connectionStatus
+    }
+  
     private let stockSubject: CurrentValueSubject<Stock, Never>
     private let stockPriceService: StockPriceServiceProtocol
     private var cancellables = Set<AnyCancellable>()
@@ -39,6 +42,10 @@ final class StockDetailViewModel: StockDetailViewModelAdaptable {
         self.coordinator = coordinator
         bindUpdates(for: stock.symbol)
     }
+    
+    func toggleFeed() {
+        stockPriceService.toggleFeed()
+    }
  
     private func bindUpdates(for symbol: String) {
         stockPriceService.stockUpdates
@@ -48,9 +55,5 @@ final class StockDetailViewModel: StockDetailViewModelAdaptable {
                 self?.stockSubject.send(updatedStock)
             }
             .store(in: &cancellables)
-    }
-    
-    func toggleFeed() {
-        stockPriceService.toggleFeed()
     }
 }

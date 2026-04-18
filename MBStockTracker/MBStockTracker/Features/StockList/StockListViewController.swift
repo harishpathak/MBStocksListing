@@ -89,6 +89,7 @@ class StockListViewController: UIViewController {
 
     private func updateConnectionStatus(status: ConnectionStatus) {
         connectionStatusLabel.text = status.title
+        feedButtonConfig.disabled = status == .connecting
     }
 
     private func updateFeedButton(isActive: Bool) {

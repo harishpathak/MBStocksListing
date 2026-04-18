@@ -19,7 +19,7 @@ enum ConnectionStatus {
         case .connected:
             LocalisedConstants.live.localizedText
         case .connecting:
-            LocalisedConstants.live.localizedText
+            LocalisedConstants.loading.localizedText
         default:
             LocalisedConstants.offline.localizedText
         }

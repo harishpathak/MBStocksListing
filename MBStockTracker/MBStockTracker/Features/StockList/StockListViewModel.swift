@@ -54,8 +54,6 @@ final class StockListViewModel: StockListViewModelAdaptable {
         bindService()
     }
     
-    // MARK: - Public Interface -
-    
     func toggleFeed() {
         stockPriceService.toggleFeed()
     }
@@ -64,9 +62,9 @@ final class StockListViewModel: StockListViewModelAdaptable {
         guard let current = stockPriceService.stock(for: stock.symbol) else { return }
         coordinator?.moveToStockDetails(stock: current, stockPriceService: stockPriceService)
     }
-    
-    // MARK: - Private -
-    
+}
+
+private extension StockListViewModel {
     private func bindService() {
         stockPriceService.allStocks
             .receive(on: DispatchQueue.main)

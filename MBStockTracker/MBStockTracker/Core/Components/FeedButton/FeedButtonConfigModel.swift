@@ -9,4 +9,5 @@ import Combine
 
 class FeedButtonConfigModel: ObservableObject {
     @Published var state: FeedButtonState = .start
+    @Published var disabled: Bool = false
 }
