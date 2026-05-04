@@ -1,0 +1,15 @@
+/* 
+  Stocks-Localizable.strings
+  MBStockTracker
+
+  Created by Harish on 16/04/2026.
+  
+*/
+
+"StockListTitle" = "Top 25 US Stocks";
+"StockDetailsTitle" = "Details";
+"Live" = "Live";
+"Offline" = "Offline";
+"Loading" = "Loading...";
+"Start" = "Start";
+"Stop" = "Stop";
